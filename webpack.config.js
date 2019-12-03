@@ -8,10 +8,13 @@ module.exports = {
     filename: "app.[contenthash].js",
     publicPath: "/"
   },
+  entry: {
+    app: ["./src/client/index.js"]
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
-      favicon: "src/assets/favicon.ico"
+      template: "src/client/index.html",
+      favicon: "src/client/assets/favicon.ico"
     }),
     new WebpackPwaManifestPlugin({
       name: "DubDubChat",
@@ -22,7 +25,7 @@ module.exports = {
       theme_color: "#81c140",
       icons: [
         {
-          src: path.resolve("src/assets/icon.png"),
+          src: path.resolve("src/client/assets/icon.png"),
           sizes: [96, 128, 192, 256, 384, 512]
         }
       ]
@@ -69,6 +72,10 @@ module.exports = {
             plugins: ["babel-plugin-styled-components"]
           }
         }
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
       }
     ]
   }
