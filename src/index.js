@@ -1,14 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
+import { hydrate } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
-import store from "./store/index";
-import { GlobalStyle } from "./styles/global";
 
-ReactDOM.render(
-  <Provider store={store}>
-    <GlobalStyle />
+hydrate(
+  <BrowserRouter>
     <App />
-  </Provider>,
+  </BrowserRouter>,
   document.getElementById("app")
 );
