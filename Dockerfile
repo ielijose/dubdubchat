@@ -1,6 +1,7 @@
 FROM node:alpine
 
 ENV PATH /app/node_modules/.bin:$PATH
+ENV NODE_ENV production
 
 RUN mkdir /app
 WORKDIR /app
@@ -8,11 +9,11 @@ WORKDIR /app
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
 
-RUN yarn
+RUN yarn install --production=false
 
 COPY . /app/
 
-RUN webpack-cli --config webpack.config.js
+RUN yarn build
 
 EXPOSE 3000
 
