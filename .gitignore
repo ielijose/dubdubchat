@@ -1,6 +1,5 @@
 node_modules
 dist/* 
-yarn.lock
 dist/app.bundle.js
 src/client/assets/images/episodes/*
 src/server/public/*
