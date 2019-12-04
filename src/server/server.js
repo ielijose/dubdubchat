@@ -10,7 +10,6 @@ const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-app.use(express.static(`${__dirname}/public`));
 
 if (ENV === "development") {
   const webpackConfig = require("../../webpack.config");
@@ -28,6 +27,8 @@ if (ENV === "development") {
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
 }
+
+app.use(express.static(`${__dirname}/public`));
 
 const format =
   ":remote-addr - [:date[iso]] :method :url :status :response-time ms - :res[content-length]";
