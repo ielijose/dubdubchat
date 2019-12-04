@@ -14,7 +14,7 @@ export const Img = styled.img`
   width: 100%;
 `;
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.article`
   position: absolute;
   top: 80%;
   left: 50%;

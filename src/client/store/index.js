@@ -10,5 +10,10 @@ const rootReducer = combineReducers({
   chat: chatReducer
 });
 
+export const createPreloadedStore = preloadedState => {
+  return createStore(rootReducer, preloadedState, applyMiddleware(thunk));
+};
+
 const store = createStore(rootReducer, applyMiddleware(thunk));
+
 export default store;
