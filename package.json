@@ -1,18 +1,20 @@
 {
   "name": "dubdubchat",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server/index.js",
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=production node src/server/index.js",
     "dev": "NODE_ENV=development nodemon src/server/index.js --exact babel-node",
-    "build": "NODE_ENV=production webpack-cli --config webpack.config.js",
-    "now-build": "npm run build",
+    "build": "webpack-cli --config webpack.config.js ",
+    "now-build": "npm run build && npm start",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.4",
     "asset-require-hook": "^1.2.0",
     "axios": "^0.19.0",
@@ -22,7 +24,6 @@
     "express": "^4.17.1",
     "helmet": "^3.21.2",
     "history": "^4.10.1",
-    "ignore-styles": "^5.0.1",
     "intersection-observer": "^0.7.0",
     "memory-cache": "^0.2.0",
     "morgan": "^1.9.1",
@@ -39,7 +40,6 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.4.1",
     "terser-webpack-plugin": "^2.2.1",
-    "webpack": "^4.41.2",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-manifest-plugin": "^2.2.0",
@@ -51,8 +51,6 @@
     "@babel/core": "^7.7.4",
     "@babel/plugin-transform-regenerator": "^7.7.4",
     "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@babel/preset-react": "^7.7.4",
     "@babel/runtime": "^7.7.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -68,6 +66,7 @@
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.19.1",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   }
