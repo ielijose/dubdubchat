@@ -31,7 +31,7 @@ $ cd dubdubchat
 
 #### Docker & Docker Compose
 
-> Build and run:
+Build and run:
 
 ```bash
 $ docker-compose up
@@ -39,20 +39,20 @@ $ docker-compose up
 
 #### Node & npm / yarn
 
-> Install dependencies:
+Install dependencies:
 
 ```bash
 $ yarn
 ```
 
-> For production first generate public assets and then start the server:
+For production first generate public assets and then start the server:
 
 ```bash
 $ yarn build
 $ yarn start
 ```
 
-> For develop:
+For develop:
 
 ```bash
  $ yarn dev
@@ -60,13 +60,13 @@ $ yarn start
 
 #### Eslint
 
-> For lint use:
+For lint use:
 
 ```bash
  $ yarn lint
 ```
 
-> For lint and fix use:
+For lint and fix use:
 
 ```bash
  $ yarn lint:fix
@@ -74,13 +74,13 @@ $ yarn start
 
 #### Prettier
 
-> For pretty files use:
+For pretty files use:
 
 ```bash
  $ yarn pretty
 ```
 
-> For pretty files and fix use:
+For pretty files and fix use:
 
 ```bash
  $ yarn pretty:fix
