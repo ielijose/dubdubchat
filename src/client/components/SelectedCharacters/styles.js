@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
-import { slideTop } from "../../styles/animations";
-import { colors } from "../../styles/colors";
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { slideTop } from '../../styles/animations';
+import { colors } from '../../styles/colors';
 
 export const List = styled.ul`
   display: flex;

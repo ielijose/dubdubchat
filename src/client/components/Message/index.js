@@ -1,14 +1,14 @@
-import React from "react";
-
+import React from 'react';
+import { messageType } from '../../types/message';
 import {
   Avatar,
   AvatarContainer,
   ContactInfo,
   DataContainer,
-  MessageText,
   MessageContainer,
-  MessageItem
-} from "./styles";
+  MessageItem,
+  MessageText,
+} from './styles';
 
 export const Message = ({ id, isMine, character, text }) => {
   return (
@@ -25,3 +25,5 @@ export const Message = ({ id, isMine, character, text }) => {
     </MessageContainer>
   );
 };
+
+Message.propTypes = messageType;

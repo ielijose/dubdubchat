@@ -31,12 +31,27 @@ function getMembers(selected, me) {
     .filter(m => m.id !== me.id)
     .slice(0, 7)
     .map(c => {
-      return c.name.split(" ")[0];
+      return c.name.split(' ')[0];
     });
+}
+
+function generateRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
+function getFirstName(name = '') {
+  let result = name;
+  const pieces = name.split(' ');
+  if (pieces.length > 0) {
+    [result] = pieces;
+  }
+  return result;
 }
 
 export default {
   getRandomCharacter,
   simulateMessageWritingTime,
-  getMembers
+  getMembers,
+  generateRandomColor,
+  getFirstName,
 };
