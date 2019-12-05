@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
-export const Room = styled.div`
+export const RoomContainer = styled.div`
   background-color: ${colors.background};
   display: flex;
   flex-direction: column;

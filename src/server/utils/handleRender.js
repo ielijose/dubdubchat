@@ -1,14 +1,14 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import { Provider } from "react-redux";
-import { StaticRouter } from "react-router";
-import { renderRoutes } from "react-router-config";
-import { ServerStyleSheet, StyleSheetManager } from "styled-components";
-import Routes from "../../client/routes/serverRoutes";
-import store from "../../client/store";
-import { renderFullPage } from "./renderFullPage";
-import { Layout } from "../../client/components/Layout";
-import apiService from "../../client/services/apiService";
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import { StaticRouter } from 'react-router';
+import { renderRoutes } from 'react-router-config';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import Routes from '../../client/routes/serverRoutes';
+import store from '../../client/store';
+import { renderFullPage } from './renderFullPage';
+import { Layout } from '../../client/components/Layout';
+import apiService from '../../client/services/apiService';
 
 export async function handleRender(req, res, next) {
   const sheet = new ServerStyleSheet();
@@ -21,8 +21,8 @@ export async function handleRender(req, res, next) {
     ...preloadedState,
     characters: {
       ...preloadedState.characters,
-      characters: results
-    }
+      characters: results,
+    },
   };
 
   try {
@@ -33,7 +33,7 @@ export async function handleRender(req, res, next) {
             <Layout>{renderRoutes(Routes)}</Layout>
           </StyleSheetManager>
         </StaticRouter>
-      </Provider>
+      </Provider>,
     );
     const styleTags = sheet.getStyleTags();
 

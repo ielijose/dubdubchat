@@ -1,6 +1,6 @@
-import React from "react";
-import MrMeeseeks from "../../assets/images/meeseeks.jpg";
-import { Div, Img, TextContainer, Text } from "./styles";
+import React from 'react';
+import MrMeeseeks from '../../assets/images/meeseeks.jpg';
+import { Div, Img, TextContainer, Text } from './styles';
 
 export const NotFoundPage = () => {
   return (

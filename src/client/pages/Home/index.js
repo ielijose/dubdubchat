@@ -1,12 +1,12 @@
-import React from "react";
-import { CharactersList } from "../../components/CharactersList";
-import { SelectedCharacters } from "../../components/SelectedCharacters";
+import React from 'react';
+import { CharactersContainer } from '../../containers/CharactersContainer';
+import { SelectedCharactersContainer } from '../../containers/SelectedCharactersContainer';
 
 export const HomePage = () => {
   return (
     <>
-      <SelectedCharacters />
-      <CharactersList />
+      <SelectedCharactersContainer />
+      <CharactersContainer />
     </>
   );
 };

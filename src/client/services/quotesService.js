@@ -1,13 +1,13 @@
-import axios from "axios";
+import axios from 'axios';
 
 const httpClient = axios.create({
-  baseURL: "https://rickandmorty-quotes.ielijose.now.sh/api",
-  responseType: "json"
+  baseURL: 'https://rickandmorty-quotes.ielijose.now.sh/api',
+  responseType: 'json',
 });
 
 function getRandomQuote() {
   return httpClient
-    .get("/quotes")
+    .get('/quotes')
     .then(res => {
       return res.data;
     })
@@ -17,5 +17,5 @@ function getRandomQuote() {
 }
 
 export default {
-  getRandomQuote
+  getRandomQuote,
 };

@@ -1,11 +1,10 @@
-import React, { Fragment } from "react";
-import { useDispatch } from "react-redux";
-import { useVisibleScreen } from "../../hooks/useVisibleScreen";
-import {
-  selectCharacter,
-  unselectCharacter
-} from "../../store/characters/actions";
-import { Article, ImageHover, Img, ImgWrapper, Title } from "./styles";
+import React, { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
+import { useVisibleScreen } from '../../hooks/useVisibleScreen';
+import { selectCharacter, unselectCharacter } from '../../store/characters/actions';
+import { characterType } from '../../types/character';
+import chatUtils from '../../utils/chatUtils';
+import { Article, ImageHover, Img, ImgWrapper, Title } from './styles';
 
 export const Character = ({ id, image, name, isSelected }) => {
   const dispatch = useDispatch();
@@ -15,14 +14,14 @@ export const Character = ({ id, image, name, isSelected }) => {
     if (isSelected) {
       dispatch(unselectCharacter(id));
     } else {
-      const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`; // TODO: Create Util
-      const firstName = name.split(" ")[0];
+      const color = chatUtils.generateRandomColor();
+      const firstName = chatUtils.getFirstName(name);
       const payload = {
         id,
         name,
         image,
         color,
-        firstName
+        firstName,
       };
       dispatch(selectCharacter(payload));
     }
@@ -42,3 +41,5 @@ export const Character = ({ id, image, name, isSelected }) => {
     </Article>
   );
 };
+
+Character.propTypes = characterType;

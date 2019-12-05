@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { fadeIn } from "../../styles/animations";
+import styled from 'styled-components';
+import { fadeIn } from '../../styles/animations';
 
 export const Div = styled.div`
   height: calc(100vh - 60px);

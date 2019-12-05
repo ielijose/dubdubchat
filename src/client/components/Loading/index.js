@@ -1,13 +1,9 @@
-import React from "react";
-import { Spinner, Svg } from "./styles";
+import React from 'react';
+import { Spinner, Svg } from './styles';
 
 export const Loading = () => (
   <Spinner>
-    <Svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="xMidYMid"
-    >
+    <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
       <circle
         cx="50"
         cy="50"
@@ -16,8 +12,7 @@ export const Loading = () => (
         strokeWidth="10"
         r="35"
         strokeDasharray="164.93361431346415 56.97787143782138"
-        transform="rotate(55.4076 50 50)"
-      >
+        transform="rotate(55.4076 50 50)">
         <animateTransform
           attributeName="transform"
           type="rotate"
@@ -25,7 +20,7 @@ export const Loading = () => (
           dur="1s"
           values="0 50 50;360 50 50"
           keyTimes="0;1"
-         />
+        />
       </circle>
     </Svg>
   </Spinner>

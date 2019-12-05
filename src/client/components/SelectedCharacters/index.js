@@ -1,60 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
-import { FaArrowRight, FaTimesCircle } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { unselectCharacter } from "../../store/characters/actions";
-import {
-  FavButton,
-  Image,
-  Item,
-  List,
-  RemoveButton,
-  Text,
-  Title
-} from "./styles";
+import PropTypes from 'prop-types';
+import React from 'react';
+import { FaArrowRight, FaTimesCircle } from 'react-icons/fa';
+import { refType } from '../../types/ref';
+import { FavButton, Image, Item, List, RemoveButton, Text, Title } from './styles';
+import { selectedListType } from '../../types/character';
 
-export const SelectedCharacters = () => {
-  const [showFixed, setShowFixed] = useState(false);
-  const dispatch = useDispatch();
-  const { selected } = useSelector(state => state.characters);
+export const SelectedCharacters = props => {
+  const { showFixed, selected, containerRef, endRef, unselect } = props;
 
-  const lastItemRef = useRef(null);
-  const listRef = useRef(null);
-
-  const scrollToRight = () => {
-    if (lastItemRef.current) {
-      listRef.current.scrollTo(lastItemRef.current.offsetLeft, 0);
-    }
-  };
-
-  useEffect(() => {
-    const onScroll = () => {
-      const newShowFixed = window.scrollY > 150;
-      if (showFixed !== newShowFixed) {
-        setShowFixed(newShowFixed);
-      }
-    };
-
-    document.addEventListener("scroll", onScroll);
-
-    scrollToRight();
-
-    return () => document.removeEventListener("scroll", onScroll);
-  }, [showFixed]);
-
-  const unselect = id => {
-    dispatch(unselectCharacter(id));
-  };
-
-  useEffect(() => {
-    scrollToRight();
-  }, [selected]);
-
-  const renderList = fixed => (
+  const renderList = (fixed = false) => (
     <>
-      <List fixed={fixed} ref={listRef}>
-        {selected.length === 0 && (
-          <Title>Please, select members to start a chat.</Title>
-        )}
+      <List fixed={fixed} ref={containerRef}>
+        {selected.length === 0 && <Title>Please, select members to start a chat.</Title>}
         {selected.map(c => {
           return (
             <Item key={c.id}>
@@ -66,7 +23,7 @@ export const SelectedCharacters = () => {
             </Item>
           );
         })}
-        <div ref={lastItemRef} />
+        <div ref={endRef} />
       </List>
       <FavButton to="/chat" disabled={selected.length === 0}>
         <FaArrowRight />
@@ -80,4 +37,12 @@ export const SelectedCharacters = () => {
       {showFixed && renderList(true)}
     </>
   );
+};
+
+SelectedCharacters.propTypes = {
+  containerRef: refType.isRequired,
+  endRef: refType.isRequired,
+  selected: selectedListType.isRequired,
+  showFixed: PropTypes.bool.isRequired,
+  unselect: PropTypes.func.isRequired,
 };

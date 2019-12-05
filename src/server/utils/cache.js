@@ -1,4 +1,4 @@
-import cache from "memory-cache";
+import cache from 'memory-cache';
 
 const memCache = new cache.Cache();
 const duration = 24 * 60 * 1000;

@@ -1,58 +1,58 @@
-import quotesService from "../../services/quotesService";
-import chatUtils from "../../utils/chatUtils";
+import quotesService from '../../services/quotesService';
+import chatUtils from '../../utils/chatUtils';
 
-export const APPEND_MESSAGE = "APPEND_MESSAGE";
-export const DELETE_MESSAGES = "DELETE_MESSAGES";
-export const FETCH_QUOTE_ERROR = "FETCH_QUOTE_ERROR";
-export const SET_ME = "SET_ME";
-export const SET_MEMBERS = "SET_MEMBERS";
-export const SET_IS_WRITING = "SET_IS_WRITING";
-export const UNSET_IS_WRITING = "UNSET_IS_WRITING";
+export const APPEND_MESSAGE = 'APPEND_MESSAGE';
+export const DELETE_MESSAGES = 'DELETE_MESSAGES';
+export const FETCH_QUOTE_ERROR = 'FETCH_QUOTE_ERROR';
+export const SET_ME = 'SET_ME';
+export const SET_MEMBERS = 'SET_MEMBERS';
+export const SET_IS_WRITING = 'SET_IS_WRITING';
+export const UNSET_IS_WRITING = 'UNSET_IS_WRITING';
 
 function appendMessage(message) {
   return {
     type: APPEND_MESSAGE,
-    message
+    message,
   };
 }
 
 function deleteMessages() {
   return {
-    type: DELETE_MESSAGES
+    type: DELETE_MESSAGES,
   };
 }
 
 function fetchQuoteError(error) {
   return {
     type: FETCH_QUOTE_ERROR,
-    error
+    error,
   };
 }
 
 function setMe(me) {
   return {
     type: SET_ME,
-    me
+    me,
   };
 }
 
 function setMembers(members) {
   return {
     type: SET_MEMBERS,
-    members
+    members,
   };
 }
 
 function setIsWriting(name) {
   return {
     type: SET_IS_WRITING,
-    name
+    name,
   };
 }
 
 function unsetIsWriting() {
   return {
-    type: UNSET_IS_WRITING
+    type: UNSET_IS_WRITING,
   };
 }
 
@@ -71,7 +71,7 @@ export const generateRandomMessage = () => async (dispatch, getState) => {
         character: randomCharacter,
         text: res.quote,
         id: chat.messages.length + Math.random(),
-        isMine
+        isMine,
       };
 
       const delay = chatUtils.simulateMessageWritingTime(message.text);
@@ -81,7 +81,7 @@ export const generateRandomMessage = () => async (dispatch, getState) => {
           dispatch(unsetIsWriting());
           dispatch(appendMessage(message));
           resolve(res);
-        }, delay)
+        }, delay),
       );
     })
     .catch(error => {
@@ -99,9 +99,9 @@ export const initializeChat = selected => dispatch => {
 
   const members = chatUtils.getMembers(selected, me);
   if (me) {
-    members.push(`${me.name.split(" ")[0]} (Your Bot)`);
+    members.push(`${me.name.split(' ')[0]} (Your Bot)`);
   }
-  const data = members.join(", ");
+  const data = members.join(', ');
 
   dispatch(setMembers(data));
 };
