@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import { fadeIn } from "../../styles/animations";
-import { colors } from "../../styles/colors";
+import styled, { css } from 'styled-components';
+import { fadeIn } from '../../styles/animations';
+import { colors } from '../../styles/colors';
 
 export const Article = styled.article`
   min-height: 200px;
@@ -39,6 +39,16 @@ export const ImageHover = styled.div`
   z-index: 2;
 `;
 
+export const Img = styled.img`
+  ${fadeIn()}
+
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  width: 100%;
+`;
+
 export const ImgWrapper = styled.div`
   border: 0px dotted ${colors.blue};
   cursor: pointer;
@@ -63,16 +73,6 @@ export const ImgWrapper = styled.div`
         opacity: 0.6;
       }
     `}
-`;
-
-export const Img = styled.img`
-  ${fadeIn()}
-
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  height: 100%;
-  object-fit: cover;
-  top: 0;
-  width: 100%;
 `;
 
 export const Title = styled.span`

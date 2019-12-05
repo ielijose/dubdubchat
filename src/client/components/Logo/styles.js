@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Svg = styled.svg`
   width: calc(100vw - 30px);

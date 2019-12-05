@@ -1,7 +1,7 @@
-import { getManifest } from "./getManifest";
+import { getManifest } from './getManifest';
 
 let files = false;
-if (process.env.NODE_ENV !== "development") {
+if (process.env.NODE_ENV !== 'development') {
   files = getManifest();
 }
 
@@ -43,19 +43,14 @@ export function renderFullPage(html, styleTags, preloadedState) {
             });
           }
         `
-            : ""
+            : ''
         }
          
-        window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
-          /</g,
-          "\\u003c"
-        )}
+        window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
       </script>
+      <script src="${files ? files['main.js'] : 'assets/app.js'}" type="text/javascript"></script>
       <script src="${
-        files ? files["main.js"] : "assets/app.js"
-      }" type="text/javascript"></script>
-      <script src="${
-        files ? files["vendors.js"] : "assets/vendors.app.js"
+        files ? files['vendors.js'] : 'assets/vendors.app.js'
       }" type="text/javascript"></script>
 
     </body>

@@ -1,4 +1,4 @@
-import { css, keyframes } from "styled-components";
+import { css, keyframes } from 'styled-components';
 /* fade in */
 
 const fadeInKeyframes = keyframes`
@@ -12,7 +12,7 @@ to {
 }
 `;
 
-export const fadeIn = ({ time = "1s", type = "ease" } = {}) =>
+export const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
   css`
     animation: ${time} ${fadeInKeyframes} ${type};
   `;
@@ -31,7 +31,6 @@ to {
 }
 `;
 
-export const slideTop = ({ time = "0.5s" } = {}) => css`
-  animation: ${time} ${slideTopKeyframes} cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+export const slideTop = ({ time = '0.5s' } = {}) => css`
+  animation: ${time} ${slideTopKeyframes} cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 `;

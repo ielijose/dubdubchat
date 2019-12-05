@@ -4,8 +4,8 @@ import {
   FETCH_CHARACTERS_ERROR,
   SELECT_CHARACTER,
   UNSELECT_CHARACTER,
-  SET_PAGE_NUMBER
-} from "./actions";
+  SET_PAGE_NUMBER,
+} from './actions';
 
 const initialState = {
   page: 1,
@@ -14,7 +14,7 @@ const initialState = {
   selected: [],
   selectedMap: {},
   error: null,
-  hasMore: true
+  hasMore: true,
 };
 
 function reducer(state = initialState, action) {
@@ -22,21 +22,21 @@ function reducer(state = initialState, action) {
     case FETCH_CHARACTERS_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case FETCH_CHARACTERS_SUCCESS:
       return {
         ...state,
         loading: false,
         characters: [...state.characters, ...action.characters],
-        hasMore: action.hasMore
+        hasMore: action.hasMore,
       };
 
     case FETCH_CHARACTERS_ERROR:
       return {
         ...state,
         loading: false,
-        error: action.error
+        error: action.error,
       };
 
     case SELECT_CHARACTER:
@@ -45,8 +45,8 @@ function reducer(state = initialState, action) {
         selected: [...state.selected, action.character],
         selectedMap: {
           ...state.selectedMap,
-          [action.character.id]: true
-        }
+          [action.character.id]: true,
+        },
       };
 
     case UNSELECT_CHARACTER:
@@ -55,14 +55,14 @@ function reducer(state = initialState, action) {
         selected: [...state.selected.filter(c => c.id !== action.id)],
         selectedMap: {
           ...state.selectedMap,
-          [action.id]: false
-        }
+          [action.id]: false,
+        },
       };
 
     case SET_PAGE_NUMBER:
       return {
         ...state,
-        page: action.page
+        page: action.page,
       };
 
     default:

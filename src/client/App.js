@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Layout } from "./components/Layout";
-import { ChatPage } from "./pages/Chat";
-import { HomePage } from "./pages/Home";
-import { NotFoundPage } from "./pages/NotFound";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { ChatPage } from './pages/Chat';
+import { HomePage } from './pages/Home';
+import { NotFoundPage } from './pages/NotFound';
 
 export const App = () => {
   return (

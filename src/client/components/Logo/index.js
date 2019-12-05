@@ -1,14 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Svg } from "./styles";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Svg } from './styles';
 
 export const Logo = () => (
   <Link to="/">
-    <Svg
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid"
-      viewBox="0 45 500 70"
-    >
+    <Svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 45 500 70">
       <defs>
         <filter id="editing-extrusion" width="100%" height="120%" x="0%" y="0%">
           <feFlood floodColor="#318a45" result="color1" />
@@ -19,18 +15,8 @@ export const Logo = () => (
             order="3,3"
             result="extrude"
           />
-          <feComposite
-            in="color1"
-            in2="extrude"
-            operator="in"
-            result="comp-extrude"
-          />
-          <feOffset
-            dx="1.5"
-            dy="1.5"
-            in="comp-extrude"
-            result="offset-extrude"
-          />
+          <feComposite in="color1" in2="extrude" operator="in" result="comp-extrude" />
+          <feOffset dx="1.5" dy="1.5" in="comp-extrude" result="offset-extrude" />
           <feMerge>
             <feMergeNode in="offset-extrude" />
             <feMergeNode in="SourceGraphic" />

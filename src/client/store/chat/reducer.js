@@ -5,15 +5,15 @@ import {
   SET_ME,
   SET_MEMBERS,
   SET_IS_WRITING,
-  UNSET_IS_WRITING
-} from "./actions";
+  UNSET_IS_WRITING,
+} from './actions';
 
 const initialState = {
   me: {},
-  members: "",
+  members: '',
   isWriting: null,
   messages: [],
-  error: null
+  error: null,
 };
 
 function reducer(state = initialState, action) {
@@ -21,42 +21,42 @@ function reducer(state = initialState, action) {
     case APPEND_MESSAGE:
       return {
         ...state,
-        messages: [...state.messages, action.message]
+        messages: [...state.messages, action.message],
       };
 
     case DELETE_MESSAGES:
       return {
         ...state,
-        messages: []
+        messages: [],
       };
 
     case SET_IS_WRITING:
       return {
         ...state,
-        isWriting: action.name
+        isWriting: action.name,
       };
 
     case UNSET_IS_WRITING:
       return {
         ...state,
-        isWriting: null
+        isWriting: null,
       };
     case FETCH_QUOTE_ERROR:
       return {
         ...state,
-        error: action.error
+        error: action.error,
       };
 
     case SET_ME:
       return {
         ...state,
-        me: action.me
+        me: action.me,
       };
 
     case SET_MEMBERS:
       return {
         ...state,
-        members: action.members
+        members: action.members,
       };
 
     default:

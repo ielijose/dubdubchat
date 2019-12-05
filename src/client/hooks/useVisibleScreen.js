@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 
 export const useVisibleScreen = () => {
   const ref = useRef(null);
@@ -7,9 +7,9 @@ export const useVisibleScreen = () => {
   useEffect(() => {
     let observer;
     Promise.resolve(
-      typeof window.IntersectionObserver !== "undefined"
+      typeof window.IntersectionObserver !== 'undefined'
         ? window.IntersectionObserver
-        : import("intersection-observer")
+        : import('intersection-observer'),
     ).then(() => {
       observer = new window.IntersectionObserver(entries => {
         const { isIntersecting } = entries[0];

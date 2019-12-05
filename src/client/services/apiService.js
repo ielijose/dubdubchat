@@ -1,13 +1,13 @@
-import axios from "axios";
+import axios from 'axios';
 
 const httpClient = axios.create({
-  baseURL: "https://rickandmortyapi.com/api",
-  responseType: "json"
+  baseURL: 'https://rickandmortyapi.com/api',
+  responseType: 'json',
 });
 
 function getCharactersByPage(page) {
   return httpClient
-    .get("/character", { params: { page } })
+    .get('/character', { params: { page } })
     .then(res => {
       return res.data;
     })
@@ -19,5 +19,5 @@ function getCharactersByPage(page) {
 }
 
 export default {
-  getCharactersByPage
+  getCharactersByPage,
 };

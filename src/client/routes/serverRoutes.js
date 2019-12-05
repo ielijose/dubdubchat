@@ -1,22 +1,22 @@
-import { HomePage } from "../pages/Home";
-import { ChatPage } from "../pages/Chat";
-import { NotFoundPage } from "../pages/NotFound";
+import { HomePage } from '../pages/Home';
+import { ChatPage } from '../pages/Chat';
+import { NotFoundPage } from '../pages/NotFound';
 
 const serverRoutes = [
   {
-    path: "/",
+    path: '/',
     component: HomePage,
-    exact: true
+    exact: true,
   },
   {
-    path: "/chat",
+    path: '/chat',
     component: ChatPage,
-    exact: true
+    exact: true,
   },
   {
-    name: "NotFound",
-    component: NotFoundPage
-  }
+    name: 'NotFound',
+    component: NotFoundPage,
+  },
 ];
 
 export default serverRoutes;
